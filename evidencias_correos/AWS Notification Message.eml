@@ -1,0 +1,78 @@
+Delivered-To: sofia61099@gmail.com
+Received: by 2002:a05:6a10:3e86:b0:61a:52af:fb5a with SMTP id c6csp941308pxw;
+        Fri, 6 Jun 2025 16:42:00 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGeC5exsDgg9rTTlNQTO4rTQ0xWz9BpTBoc/TnlDhAQcSP0DunAqo1Jbq4R1KM32z00grQb
+X-Received: by 2002:a05:620a:192a:b0:7d2:27ca:3b1 with SMTP id af79cd13be357-7d2298ec101mr967307385a.54.1749253319960;
+        Fri, 06 Jun 2025 16:41:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1749253319; cv=none;
+        d=google.com; s=arc-20240605;
+        b=MV1+kRe1wpm9YAUBuzomrzL7UnIrh8Nhza7sI26Nry4q52EqqvKp5KFZ0s3pQ1/9Fd
+         A/k5lsxkqKypKqrdgFe9VhPAw93hGIR2czBsA9fFolaPq9xhOIvw7PYhK/7iSpBBSztr
+         j99u0CZCdFKKSJyZEDhnabdtyatMZCVSBRGm5io598bAqJihvI/S0xujPk5eygjtiOsn
+         mXBf3JLwW+TKBLdrTFayQccTLI7K6LNVY6lGy5XmTdreVpekrlivhd/aVWd64Bk+bmr8
+         /vwPbH0S5t6kLkTG5fRX6lVBeEObethakFJlqt8Z8qYaoNIW7mWnB8QFJJI1hLe083iE
+         yPCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:content-transfer-encoding:mime-version:subject
+         :message-id:to:from:date:dkim-signature:dkim-signature;
+        bh=KZmLBi/wgRx5bmexPo/tP2For+vKuRbPQA83zYAsdeM=;
+        fh=TiZJRcuZ1hhYDC2zp4tGl97KB6/vw2bK+30xG1cSd/Q=;
+        b=SaSx+cL3GZU9lX2DxKYcjXPBQC11lII51J2XORGLdMAPjIQAzRZPc0EE0XEYgUI4fm
+         mNu3jR8+ukPcypGRVTX1rAfodc52zNlThF2E/fK/+fh0rCvf8A1uqBkaCbBmLGpQrxZM
+         2adDCTTmP47D8p0SwfMB8EzkSXcp1yB8N3nvFEp3lM88PUcVWGaYNq7gu2qnwRkWm/Ox
+         sOK5weEVg/UN0ABGLeDSZ0mPJeq6dhHjva/Tckp+fVFND93b0nzdwF9ObuK0sFcbz0D7
+         bZ8p9ESb9yfYy/iy4RRGVCCUk9yf8QROHQkAWI0qfJwiO2RoDiEE+VV/1nQR3EJgjVrF
+         yHwQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@sns.amazonaws.com header.s=ynpxk332ompudjhq6oyfigjxlukl4vxo header.b=coznhPgo;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=VeB9cCo9;
+       spf=pass (google.com: domain of 01000197479f6be9-f1d5803c-2bff-4b7d-af8c-29cee2086430-000000@amazonses.com designates 54.240.48.245 as permitted sender) smtp.mailfrom=01000197479f6be9-f1d5803c-2bff-4b7d-af8c-29cee2086430-000000@amazonses.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=amazonaws.com
+Return-Path: <01000197479f6be9-f1d5803c-2bff-4b7d-af8c-29cee2086430-000000@amazonses.com>
+Received: from a48-245.smtp-out.amazonses.com (a48-245.smtp-out.amazonses.com. [54.240.48.245])
+        by mx.google.com with ESMTPS id 6a1803df08f44-6fb09b1710fsi26506996d6.228.2025.06.06.16.41.59
+        for <sofia61099@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 06 Jun 2025 16:41:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 01000197479f6be9-f1d5803c-2bff-4b7d-af8c-29cee2086430-000000@amazonses.com designates 54.240.48.245 as permitted sender) client-ip=54.240.48.245;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sns.amazonaws.com header.s=ynpxk332ompudjhq6oyfigjxlukl4vxo header.b=coznhPgo;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=VeB9cCo9;
+       spf=pass (google.com: domain of 01000197479f6be9-f1d5803c-2bff-4b7d-af8c-29cee2086430-000000@amazonses.com designates 54.240.48.245 as permitted sender) smtp.mailfrom=01000197479f6be9-f1d5803c-2bff-4b7d-af8c-29cee2086430-000000@amazonses.com;
+       dmarc=pass (p=QUARANTINE sp=NONE dis=NONE) header.from=amazonaws.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ynpxk332ompudjhq6oyfigjxlukl4vxo; d=sns.amazonaws.com;
+	t=1749253319;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=KZmLBi/wgRx5bmexPo/tP2For+vKuRbPQA83zYAsdeM=;
+	b=coznhPgoiJpcUACioO7hAy6GkwoAEJ0GdzqLYwCGurxHmMiz3/YPNcgiCIbjS5LM
+	dgCPQoxUDfacZKU/D6DOJ9GDRlP0qXTV3KFSDI7mEv8V4SQxn+8UjKk6wt+/lPpPq64
+	puSd0kT1GfdIvChb5NwIcumW+PDASS2MZeJ1cd+8=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1749253319;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=KZmLBi/wgRx5bmexPo/tP2For+vKuRbPQA83zYAsdeM=;
+	b=VeB9cCo9lk73EMc9bqqbxE2MId6z4f27fTseMoiwkFt7IUNY6FJNKuTsBaWTgv8k
+	47f5YUmAZ1RHFLIe+Ox8s3fjWJCBWP8bnD+VIs1skv44+fZflUU8pqnoPyCafMqc534
+	DanOtQDGKLspuW3Kpa+HfY0D2+uQ9fKgx9HMjU5A=
+Date: Fri, 6 Jun 2025 23:41:59 +0000
+From: AWS Notifications <no-reply@sns.amazonaws.com>
+To: sofia61099@gmail.com
+Message-ID: <01000197479f6be9-f1d5803c-2bff-4b7d-af8c-29cee2086430-000000@email.amazonses.com>
+Subject: AWS Notification Message
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+x-amz-sns-message-id: 4a0ece16-de34-5847-bb0f-aeaba1330bbc
+x-amz-sns-subscription-arn: arn:aws:sns:us-east-1:637423430172:test-topic:78d44508-6d20-4cf3-9960-5fcc1d33977b
+Feedback-ID: ::1.us-east-1.rLk2FYYR7ms1BvCiYXCIqXvY3U/J1vVW0G3YrYLy0pk=:AmazonSES
+X-SES-Outgoing: 2025.06.06-54.240.48.245
+
+Alert: 22960 quantity is -3 at 4.25 USD
+
+--
+If you wish to stop receiving notifications from this topic, please click or visit the link below to unsubscribe:
+https://sns.us-east-1.amazonaws.com/unsubscribe.html?SubscriptionArn=arn:aws:sns:us-east-1:637423430172:test-topic:78d44508-6d20-4cf3-9960-5fcc1d33977b&Endpoint=sofia61099@gmail.com
+
+Please do not reply directly to this email. If you have any questions or comments regarding this email, please contact us at https://aws.amazon.com/support
